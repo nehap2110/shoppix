@@ -8,6 +8,15 @@ const PORT = process.env.PORT || 3000;
 //connect db
 connectdb();
 
+//handle uncaught exception error
+process.on('uncaughtException',(err)=>{
+    console.log(`error ${err.message}`);
+    console.log('server is shutting down ,due to uncaught exception error')
+
+     process.exit(1);
+})
+//console.log(name)
+
 //route
 
 const server = app.listen(PORT,()=>{
